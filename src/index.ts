@@ -1,6 +1,6 @@
 import { initializeContext } from "./context";
 import { launch } from "./app";
 
-initializeContext().then(() => {
-  launch();
+initializeContext().then(async () => {
+  await launch();
 });

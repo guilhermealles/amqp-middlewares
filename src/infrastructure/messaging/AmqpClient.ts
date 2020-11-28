@@ -28,6 +28,20 @@ export class AmqpClient {
     }
   }
 
+  async consumeMessage(queue: string): Promise<Message | null> {
+    let message: Message | null = null;
+    if (this.#channel) {
+      await this.#channel?.assertQueue(queue);
+      await this.#channel.consume(queue, (msg) => {
+        if (msg !== null) {
+          message = new Message(msg.content.toString(), msg.properties.headers);
+          this.#channel?.ack(msg);
+        }
+      });
+    }
+    return message;
+  }
+
   private buildAmqpUri(
     username: string,
     password: string,

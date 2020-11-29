@@ -29,17 +29,18 @@ export class AmqpClient {
   }
 
   async consumeMessage(queue: string): Promise<Message | null> {
-    let message: Message | null = null;
-    if (this.#channel) {
-      await this.#channel?.assertQueue(queue);
-      await this.#channel.consume(queue, (msg) => {
-        if (msg !== null) {
-          message = new Message(msg.content.toString(), msg.properties.headers);
-          this.#channel?.ack(msg);
-        }
-      });
+    this.checkIfChannelIsValid();
+    await this.#channel?.assertQueue(queue);
+    const message = await this.#channel?.get(queue);
+    let response = null;
+    if (message) {
+      this.#channel?.ack(message);
+      response = new Message(
+        message.content.toString(),
+        message.properties.headers
+      );
     }
-    return message;
+    return response;
   }
 
   private buildAmqpUri(
@@ -50,5 +51,13 @@ export class AmqpClient {
     vhost: string
   ): string {
     return `amqp://${username}:${password}@${host}:${port}/${vhost}`;
+  }
+
+  private checkIfChannelIsValid() {
+    if (!this.#channel) {
+      throw new Error(
+        "Channel does not exist anymore. It was probably killed."
+      );
+    }
   }
 }

@@ -8,8 +8,8 @@ export class MessagingPipeline {
     this.#messageProcessors = processors;
   }
 
-  async run(message: Message): Promise<void> {
-    let currentMessage: Message | null = message;
+  async run(message: Message | null): Promise<void> {
+    let currentMessage = message;
     for (let i = 0; i < this.#messageProcessors.length; i++) {
       if (currentMessage) {
         currentMessage = await this.#messageProcessors[i].handle(

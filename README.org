@@ -1,0 +1,9 @@
+#+TITLE: amqp-middlewares
+#+AUTHOR: Guilherme Rezende Alles
+
+
+=amqp-middlewares= is a toolset to create stream processors for AMQP message brokers. It allows the creation of pipelines to filter, manipulate, publish, and duplicate messages. The pipelines are also customizeable, accepting custom message processors to fulfill pretty much any need.
+
+* Disclaimer
+
+This is still a work in progress. I intend to, eventually, publish it as an =npm= package.

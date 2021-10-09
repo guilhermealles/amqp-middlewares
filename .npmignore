@@ -1,0 +1,7 @@
+infra/**
+src/**
+.eslintrc
+.prettierrc
+**/__tests__/**
+tsconfig.json
+jest.config.json

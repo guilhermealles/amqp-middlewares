@@ -20,7 +20,7 @@ After installing the package, you can import the tools to create a pipeline and 
 
 *** Including a timestamp header and publishing a message
 
-The following example will show you how to use the messaging pipeline to achieve two things: add a "timestamp" header to a message and publish it to the ="sample"= exchange with the ="operation"= routing key.
+The following example will show you how to use the messaging pipeline to achieve two things: add a "timestamp" header to a message and publish it to the =sample= exchange with the =operation= routing key.
 
 #+BEGIN_SRC javascript
 
@@ -60,7 +60,3 @@ await pipeline.run(message);
 */
 
 #+END_SRC
-
-* Disclaimer
-
-This is still a work in progress. I intend to, eventually, publish it as an =npm= package.

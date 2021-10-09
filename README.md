@@ -1,28 +1,24 @@
-#+TITLE: amqp-middlewares
-#+AUTHOR: Guilherme Rezende Alles
+# amqp-middlewares
 
+`amqp-middlewares` is a toolset to create message processors for AMQP message brokers. It exports a `MessagingPipeline`, which allows the combination of message processors to filter, manipulate, consume from, and publish to AMQP queues. `amqp-middlewares` also exports a `MessageProcessor` interface, which you can implement to create custom message processors to fulfill other needs.
 
-=amqp-middlewares= is a toolset to create message processors for AMQP message brokers. It exports a =MessagingPipeline=, which allows the combination of message processors to filter, manipulate, consume from, and publish to AMQP queues. =amqp-middlewares= also exports a =MessageProcessor= interface, which you can implement to create custom message processors to fulfill other needs.
+## Installation
 
-* Installation
+You can install `amqp-middlewares` with `npm`:
 
-You can install =amqp-middlewares= with =npm=:
-
-#+BEGIN_SRC sh
+```bash
 npm install amqp-middlewares
-#+END_SRC
+```
 
-* Getting started
+## Getting started
 
 After installing the package, you can import the tools to create a pipeline and process messages.
 
-** Examples
+### Including a timestamp header and publishing a message
 
-*** Including a timestamp header and publishing a message
+The following example will show you how to use the messaging pipeline to achieve two things: add a "timestamp" header to a message and publish it to the `"sample"` exchange with the `"operation"` routing key.
 
-The following example will show you how to use the messaging pipeline to achieve two things: add a "timestamp" header to a message and publish it to the =sample= exchange with the =operation= routing key.
-
-#+BEGIN_SRC javascript
+```javascript
 
 import { Message, MessagingPipeline, PublisherMessageProcessor, AmqpClientFactory } from 'amqp-middlewares';
 
@@ -58,5 +54,4 @@ await pipeline.run(message);
   exchange with the "operation" routing key. The TimestamperMessageProcessor should
   also have added a "timestamp" header to the message.
 */
-
-#+END_SRC
+```

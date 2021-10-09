@@ -2,6 +2,8 @@
   "name": "amqp-middlewares",
   "version": "1.0.0",
   "description": "",
+  "author": "Guilherme Alles",
+  "license": "ISC",
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon",
@@ -13,8 +15,6 @@
     "type": "git",
     "url": "git+https://github.com/guilhermealles/amqp-middlewares.git"
   },
-  "author": "Guilherme Alles",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/guilhermealles/amqp-middlewares/issues"
   },
@@ -25,7 +25,7 @@
     "@types/node": "^14.11.8",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
-    "eslint": "^7.11.0",
+    "eslint": "^7.32.0",
     "jest": "^26.6.3",
     "nodemon": "^2.0.4",
     "ts-jest": "^26.4.4",

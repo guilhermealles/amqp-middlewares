@@ -1,5 +1,5 @@
 {
-  "name": "rabbitmq-middlewares",
+  "name": "amqp-middlewares",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guilhermealles/rabbitmq-middlewares.git"
+    "url": "git+https://github.com/guilhermealles/amqp-middlewares.git"
   },
   "author": "Guilherme Alles",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/guilhermealles/rabbitmq-middlewares/issues"
+    "url": "https://github.com/guilhermealles/amqp-middlewares/issues"
   },
-  "homepage": "https://github.com/guilhermealles/rabbitmq-middlewares#readme",
+  "homepage": "https://github.com/guilhermealles/amqp-middlewares#readme",
   "devDependencies": {
     "@types/amqplib": "^0.5.16",
     "@types/jest": "^26.0.15",

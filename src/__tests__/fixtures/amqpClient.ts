@@ -1,0 +1,47 @@
+import amqplib from 'amqplib';
+
+const getMockChannel = function (): amqplib.Channel {
+  return {
+    ack: jest.fn(),
+    ackAll: jest.fn(),
+    addListener: jest.fn(),
+    assertExchange: jest.fn(),
+    assertQueue: jest.fn(),
+    bindExchange: jest.fn(),
+    bindQueue: jest.fn(),
+    cancel: jest.fn(),
+    checkExchange: jest.fn(),
+    checkQueue: jest.fn(),
+    close: jest.fn(),
+    consume: jest.fn(),
+    deleteExchange: jest.fn(),
+    deleteQueue: jest.fn(),
+    emit: jest.fn(),
+    eventNames: jest.fn(),
+    get: jest.fn(),
+    getMaxListeners: jest.fn(),
+    listenerCount: jest.fn(),
+    listeners: jest.fn(),
+    nack: jest.fn(),
+    nackAll: jest.fn(),
+    off: jest.fn(),
+    on: jest.fn(),
+    once: jest.fn(),
+    prefetch: jest.fn(),
+    prependListener: jest.fn(),
+    prependOnceListener: jest.fn(),
+    publish: jest.fn(),
+    purgeQueue: jest.fn(),
+    rawListeners: jest.fn(),
+    recover: jest.fn(),
+    reject: jest.fn(),
+    removeAllListeners: jest.fn(),
+    removeListener: jest.fn(),
+    sendToQueue: jest.fn(),
+    setMaxListeners: jest.fn(),
+    unbindExchange: jest.fn(),
+    unbindQueue: jest.fn(),
+  };
+};
+
+export { getMockChannel };

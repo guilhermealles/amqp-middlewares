@@ -1,9 +1,7 @@
 {
-  "amqp": {
-    "host": "localhost",
-    "port": 5672,
-    "username": "guest",
-    "password": "guest",
-    "vhost": "/"
-  }
+  "host": "localhost",
+  "port": 5672,
+  "username": "guest",
+  "password": "guest",
+  "vhost": "/"
 }

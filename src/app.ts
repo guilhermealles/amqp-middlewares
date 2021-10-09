@@ -1,14 +1,15 @@
 import { MessagingPipeline } from './application/MessagingPipeline';
 import { PublisherMessageProcessor } from './application/PublisherMessageProcessor';
 import { TimestamperMessageProcessor } from './application/TimestamperMessageProcessor';
-import { amqpClient } from './context';
-import { initializeContext } from './context';
+import { AmqpClientFactory } from './infrastructure/messaging/AmqpClientFactory';
 import config from './config/config.json';
 
 const TARGET_EXCHANGE = '';
-const TARGET_ROUTING_KEY = 'queue-2';
+const TARGET_ROUTING_KEY = 'queue-1';
 
 async function launch(): Promise<void> {
+  const amqpClient = await AmqpClientFactory.GetClientInstance(config);
+
   const MESSAGING_PIPELINE = new MessagingPipeline([
     new TimestamperMessageProcessor(),
 
@@ -20,15 +21,17 @@ async function launch(): Promise<void> {
   ]);
 
   for (let i = 0; i < 100; i++) {
-    const message = await amqpClient.consumeMessage('queue-1');
+    const message = await amqpClient.consumeMessage('queue-2');
     await MESSAGING_PIPELINE.run(message);
   }
 }
 
-initializeContext(config)
-  .then(async () => {
+(async () => {
+  try {
     await launch();
-  })
-  .then(() => {
     process.exit(0);
-  });
+  } catch (e) {
+    console.error(e);
+    process.exit(1);
+  }
+})();

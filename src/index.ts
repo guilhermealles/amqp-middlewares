@@ -1,5 +1,5 @@
 import { initializeContext, ContextConfig } from './context';
-import { AmqpClient } from './infrastructure/messaging/AmqpClient';
+import { AmqpClientFactory } from './infrastructure/messaging/AmqpClientFactory';
 import { Message } from './model/Message';
 import { MessageProcessor } from './application/MessageProcessor';
 import { MessagingPipeline } from './application/MessagingPipeline';
@@ -10,7 +10,7 @@ import { TimestamperMessageProcessor } from './application/TimestamperMessagePro
 export {
   initializeContext,
   ContextConfig,
-  AmqpClient,
+  AmqpClientFactory,
   Message,
   MessageProcessor,
   MessagingPipeline,
